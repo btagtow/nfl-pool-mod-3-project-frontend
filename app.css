@@ -1,0 +1,25 @@
+#main-container{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: solid black
+}
+h1{
+    display: flex;
+    justify-content: center;
+    border: solid red
+}
+#user-selector{
+    border:solid blue
+}
+#sign-up{
+    border: solid black;
+    height: 50%
+}
+
+
+/* #game-container{
+
+
+} */

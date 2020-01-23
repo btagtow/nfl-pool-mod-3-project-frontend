@@ -5,19 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>NFL Survivor Challenge</title>
+    <link rel="stylesheet" href="app.css">
+    
 </head>
 <body>
+    <h1 id="header">Welcome to the NFL Survivor Challenge</h1>
+    <p>Select or create a user profile to play, or view games by week!</p>
     <div class = "main-container", id="main-container">
         
         <div class = "user-container", id = "user-container">
-            <h1>Users:</h1>
+            <h2>Users:</h2>
+            <select id="user-selector">
+            </select>
+            <button name="view-user" id="view-user">View</button>
+            <form id='create-user'>
+                <h4>Add User:</h4>
+                <label>First Name</label>
+                <input type='text' name='first-name' id='first-name'/>
+                <label>Last Name</label>
+                <input type='text' name='last-name' id='last-name' />
+                <label>Profile Pic</label>
+                <input type='url' name='image' id='image' placeholder='Image URL' />
+                <!-- <label>Favorite Team</label>
+                <select id = "favorite-team-selector">
+                </select> -->
+                <input type='submit' value='Create User' name='create-user'>
+                </label>
+            </form>
         </div>
-        <div class = "game-container", id = "game-container">
-            <h1>Games:</h1>
-        </div>
-        <div class = "week-container", id = "week-container">
-            <h1>Week:</h1>
-        </div>
+
 
 
 
