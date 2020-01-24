@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Bangers&display=swap');
+@import "colors";
+@import "scales";
+
+@mixin primary-header-font {
+    //name it whatever you want ^
+
+    font-family: 'Bangers', cursive;
+    font-size: $xl;
+    color: $primary-color-2;
+    margin-bottom: $small;
+
+}

@@ -4,7 +4,11 @@ const userURL = 'http://localhost:3000/users'
 const userContainer = document.getElementById('user-container')
 const weekContainer = document.getElementById('week-container')
 const userDropDown = document.querySelector('#user-selector')
-const weekDropDown = document.querySelector('#week-selector')
+const gameContainer = document.getElementById('game-container')
+const userWeeksGamesContainer = document.getElementById('user-weeks-games-container')
+userWeeksGamesContainer.append(userContainer, weekContainer, gameContainer)
+const weekDropDown = document.getElementById('week-drop-down')
+const weekDropDownSelect = document.getElementById('week-drop-down-select')
 const createUser = document.getElementById('create-user') 
 const firstName = document.getElementById('first-name')
 const lastName = document.getElementById('last-name')
@@ -20,7 +24,8 @@ const imageCard = document.getElementById('image_card')
 const superBowlPrediction = document.getElementById('super-bowl-prediction')
 const likeButton = document.getElementById('like_button')
 const likeCount = document.getElementById('likes')
-superBowlPrediction.append(imageCard)
+const likesContainer = document.getElementById('likes-container')
+
 document.addEventListener("DOMContentLoaded", () => {
 
     fetchUsers()
@@ -67,6 +72,7 @@ function userPage(){
 function fetchWeeks(){
     fetch('http://localhost:3000/weeks')
         .then(response)
+        .then(console.log)
         .then(weeks => weeks.map(week => {
             const theWeek = document.createElement('option')
             theWeek.innerHTML = `<a href="http://localhost:3001/weeks.html/id=?${week.id}">Week ${week.week}</a>`
@@ -110,12 +116,14 @@ function imageData(){
         const chiefs = document.getElementById('chiefs')
     
         chiefs.src = image.image   
-        likeButton.innerText = 'Throw a like for the Chiefs to win.'
+        likeButton.innerText = 'Throw a bandwagon like for the Chiefs to win.'
         likeCount.innerText = image.likes
 
-        imageCard.append(chiefs)
-        imageCard.append(likeButton)
-        imageCard.append(likeCount)
+        superBowlPrediction.append(imageCard)
+        userContainer.append(chiefs)
+        userContainer.append(likesContainer)
+        likesContainer.append(likeButton)
+        likesContainer.append(likeCount)
         
         
         })
@@ -139,9 +147,66 @@ function likeCounter(imageURL, imageId){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            image_id:imageId
+            likes: toNum+1
+
         })
         }
         )
     })
     }
+fetch('http://localhost:3000/games')
+    .then(response)
+    .then(games => weekListing(games))
+function weekListing(games){
+    appendWeeks(games)
+    const theGames = games.map(game => {
+        return game.week.week
+    })
+    const uniqGameWeekInt = theGames.filter(onlyUnique)
+    uniqGameWeekInt.map(week => {
+        let weekOptions = document.createElement('option')
+        weekOptions.innerText = `Week ${week}`
+        weekDropDown.append(weekOptions)
+    })
+}
+function appendWeeks(games){
+    weekDropDownSelect.addEventListener("click", () => {
+        event.preventDefault()
+        
+        let week = weekDropDown.options[weekDropDown.selectedIndex]
+        let weekId = week.innerText[5]
+
+        games.map(game => {
+            const gameWeek = game.week.week
+    
+            return checkWeekId(gameWeek, weekId) ? addGamesAndButtons(game, weekContainer)
+            : console.log('nope')
+        })
+    })
+}
+    
+function checkWeekId(gameWeek, weekId){
+    return (gameWeek== parseInt(weekId))
+}
+    
+    function addGamesAndButtons(game, specificWeekContainer){
+        let individualGameContainer = document.getElementById('game-container')
+        let gameListing = document.createElement('p')
+
+    
+        gameListing.id = game.id
+        gameListing.innerText = `${game.home.name} (${game.home_score}) vs. ${game.away.name} (${game.away_score})`
+    
+    
+        specificWeekContainer.append(individualGameContainer)
+        individualGameContainer.append(gameListing)
+
+    
+        
+        
+        
+        
+    }
+function onlyUnique(value, index, self) { 
+    return self.indexOf(value) === index;
+}

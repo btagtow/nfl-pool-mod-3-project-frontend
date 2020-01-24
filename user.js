@@ -11,9 +11,9 @@ const weekDropDown = document.getElementById('week-drop-down')
 const weekDropDownSelect = document.getElementById('week-drop-down-select')
 const weekContainer = document.getElementById('week-container')
 const gameContainer = document.getElementById('game-container')
-const pointsIndicator = document.getElementById('points')
 const welcomeContainer = document.getElementById('welcome-container')
 const profilePicContainer = document.getElementById('profile-pic-container')
+const pointsIndicator = document.getElementById('points')
 const selectionContainer = document.getElementById('selection-container')
 gameContainer.append(weekContainer)
 const welcomeUser = document.getElementById('welcome-message')
@@ -24,7 +24,11 @@ const week2Selection = document.getElementById('week-2-selections')
 const week3Selection = document.getElementById('week-3-selections')
 const week4Selection = document.getElementById('week-4-selections')
 const week5Selection = document.getElementById('week-5-selections')
-selectionContainer.append(week1Selection, week2Selection, week3Selection, week4Selection, week5Selection)
+const week6Selection = document.getElementById('week-6-selections')
+const week7Selection = document.getElementById('week-7-selections')
+const week8Selection = document.getElementById('week-8-selections')
+const week9Selection = document.getElementById('week-9-selections')
+selectionContainer.append(week1Selection, week2Selection, week3Selection, week4Selection, week5Selection, week6Selection, week7Selection, week8Selection, week9Selection)
 const updateButton = document.getElementById('toggle-update-form')
 const updateUserForm = document.getElementById('update-user-form')
 
@@ -108,10 +112,16 @@ function addGamesAndButtons(game, specificWeekContainer){
     let gameListing = document.createElement('p')
     let homeTeamButton = document.createElement('button')
     let awayTeamButton = document.createElement('button')
+
+
     homeTeamButton.innerText = `select ${game.home.name}`
     awayTeamButton.innerText = `select ${game.away.name}`
+
+
     gameListing.id = game.id
     gameListing.innerHTML = `<a>Week ${game.week.week}: Home: ${game.home.name} vs. Away: ${game.away.name}</a>`
+
+
     specificWeekContainer.append(individualGameContainer)
     individualGameContainer.append(gameListing)
     individualGameContainer.append(homeTeamButton)
@@ -142,7 +152,7 @@ function addGamesAndButtons(game, specificWeekContainer){
         window.alert(`Week ${week} pick: ${pick}`)
         let selection = document.createElement('li')    
         selection.innerText = `Week ${week} selection: ${pick}`
-        selectionContainer.append(selection)
+        gameContainer.append(selection)
         })
         // console.log(fetchPicks())
     })
@@ -182,7 +192,7 @@ function postPicks(week, pick, body){
     window.alert(`Week ${week} pick: ${pick}`)
     let selection = document.createElement('li')    
     selection.innerText = `Week ${week} selection: ${pick}`
-    selectionContainer.append(selection)
+    gameContainer.append(selection)
 
 }
 
@@ -223,7 +233,10 @@ function showPicks(user){
         : pick.week == "3" ? week3Selection.append(li, deleteButton)
         : pick.week == "4" ? week4Selection.append(li, deleteButton)
         : pick.week == "5" ? week5Selection.append(li, deleteButton)
-        : pick.week == "6" ? week5Selection.append(li, deleteButton)
+        : pick.week == "6" ? week6Selection.append(li, deleteButton)
+        : pick.week == "7" ? week7Selection.append(li, deleteButton)
+        : pick.week == "8" ? week8Selection.append(li, deleteButton)
+        : pick.week == "9" ? week9Selection.append(li, deleteButton)
         : console.log('didnt seed that much yo')
         
 }

@@ -10,35 +10,57 @@
 </head>
 <body>
     <h1 id="header">Welcome to the NFL Survivor Challenge</h1>
-    <p>Select or create a user profile to play, or view games by week!</p>
+    <p id="instructions">Select or create a user profile to play, or view games by week!</p>
     <div class = "main-container", id="main-container">
+        <div class = "user-weeks-games-container", id = "user-weeks-games-container">
         
-        <div class = "user-container", id = "user-container">
-            <h2>Users:</h2>
-            <select id="user-selector">
-            </select>
-            <button name="view-user" id="view-user">View</button>
-            <form id='create-user'>
-                <h4>Add User:</h4>
-                <label>First Name</label>
-                <input type='text' name='first-name' id='first-name'/>
-                <label>Last Name</label>
-                <input type='text' name='last-name' id='last-name' />
-                <label>Profile Pic</label>
-                <input type='url' name='image' id='image' placeholder='Image URL' />
-                <!-- <label>Favorite Team</label>
-                <select id = "favorite-team-selector">
-                </select> -->
-                <input type='submit' value='Create User' name='create-user'>
-                </label>
-            </form>
+            <div class = "user-container", id = "user-container">
+                <h2>Users:</h2>
+                <select id="user-selector">
+                </select>
+                <button name="view-user" id="view-user">View</button>
+                <div id="week-container">
+                    <h4>Select a Week to View Games and Outcomes:</h4>
+                        <select id="week-drop-down">
+                        </select>
+                        <button id="week-drop-down-select">Select</button>
+                </div>
+                <form id='create-user'>
+                    <h4>Add User:</h4>
+                    <label>First Name</label>
+                    <input type='text' name='first-name' id='first-name'/>
+                    <label>Last Name</label>
+                    <input type='text' name='last-name' id='last-name' />
+                    <label>Profile Pic</label>
+                    <input type='url' name='image' id='image' placeholder='Image URL' />
+                    <!-- <label>Favorite Team</label>
+                    <select id = "favorite-team-selector">
+                    </select> -->
+                    <input type='submit' value='Create User' name='create-user'>
+                    </label>
+                </form>
+            </div>
+
+            <div id="game-container">
+                <div id="week1-container"></div>
+                <div id="week2-container"></div>
+                <div id="week3-container"></div>
+                <div id="week4-container"></div>
+                <div id="week5-container"></div>
+                <div id="week6-container"></div>
+                <div id="week7-container"></div>
+                <div id="week8-container"></div>
+                <div id="week9-container"></div>
+            </div>
         </div>
         <div id="super-bowl-prediction">
 
             <div id="image_card" class="card col-md-4">
                 <img src="" id="chiefs" data-id=""/>
-                <span id="likes">Likes Go Here</span>
-                <button id="like_button">Like</button>
+                <div id='likes-container'>
+                    <span id="likes">Likes Go Here</span>
+                    <button id="like_button">Like</button>
+                </div>
             </div>
 
         </div>
