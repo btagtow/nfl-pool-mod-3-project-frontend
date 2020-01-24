@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css?family=Bangers&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap");
+#welcome-container {
+  display: flex;
+  flex-direction: row;
+}
+
+#toggle-update-form {
+  display: flex;
+  justify-content: center;
+}
+
+#welcome-message {
+  display: flex;
+  justify-content: center;
+  font-family: "Bowlby One SC", cursive;
+}
+
+#week-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#game-selection-week-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-top-style: solid;
+  border-width: 5px;
+  align-items: stretch;
+}
+
+#selection-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#profile-pic-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-style: solid;
+  border-left-width: medium;
+}
+
+#header-container {
+  display: flex;
+  flex-direction: row;
+}
+
+#points {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/*# sourceMappingURL=user.css.map */

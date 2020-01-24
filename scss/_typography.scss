@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap');
 @import "colors";
 @import "scales";
 
@@ -9,5 +10,10 @@
     font-size: $xl;
     color: $primary-color-2;
     margin-bottom: $small;
+
+}
+
+@mixin profile-header-font{
+    font-family: 'Bowlby One SC', cursive;
 
 }

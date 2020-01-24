@@ -31,6 +31,7 @@ const week9Selection = document.getElementById('week-9-selections')
 selectionContainer.append(week1Selection, week2Selection, week3Selection, week4Selection, week5Selection, week6Selection, week7Selection, week8Selection, week9Selection)
 const updateButton = document.getElementById('toggle-update-form')
 const updateUserForm = document.getElementById('update-user-form')
+pointsIndicator.append(updateUserForm)
 
 document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault()
@@ -63,6 +64,7 @@ function welcomeMessage(){
             pointsIndicator.append(points)
             back.append(backButton)
             profilePicContainer.append(image)
+            profilePicContainer.append(pointsIndicator)
 
             })
             
@@ -192,7 +194,7 @@ function postPicks(week, pick, body){
     window.alert(`Week ${week} pick: ${pick}`)
     let selection = document.createElement('li')    
     selection.innerText = `Week ${week} selection: ${pick}`
-    gameContainer.append(selection)
+    pointsIndicator.append(selection)
 
 }
 

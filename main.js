@@ -25,7 +25,7 @@ const superBowlPrediction = document.getElementById('super-bowl-prediction')
 const likeButton = document.getElementById('like_button')
 const likeCount = document.getElementById('likes')
 const likesContainer = document.getElementById('likes-container')
-
+// welcomeContainer.append(toggleUpdateButton)
 document.addEventListener("DOMContentLoaded", () => {
 
     fetchUsers()

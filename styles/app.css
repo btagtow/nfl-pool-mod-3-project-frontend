@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Bangers&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap");
 body {
   color: red;
 }
@@ -39,15 +40,15 @@ body {
 
 #likes-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 #user-weeks-games-container {
   display: flex;
   justify-content: space-between;
 }
-
-#chiefs {
+#user-weeks-games-container #chiefs {
+  padding-left: 30%;
   width: 50%;
   height: auto;
 }
