@@ -31,6 +31,12 @@ const week9Selection = document.getElementById('week-9-selections')
 selectionContainer.append(week1Selection, week2Selection, week3Selection, week4Selection, week5Selection, week6Selection, week7Selection, week8Selection, week9Selection)
 const updateButton = document.getElementById('toggle-update-form')
 const updateUserForm = document.getElementById('update-user-form')
+const cheatDiv = document.getElementById('cheat-button')
+const cheatButton = document.createElement('button')
+cheatButton.innerText = "Cheat Button"
+cheatDiv.append(cheatButton)
+const filler = document.getElementById('filler')
+
 pointsIndicator.append(updateUserForm)
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -38,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     welcomeMessage()
     catchAll()
     toggleUpdateButton()
+    
     // fetchGameWeeks()
     // weekSelector()
     // gameSelector()
@@ -55,7 +62,7 @@ function welcomeMessage(){
             let backButton = document.createElement('button')
             let image = document.getElementById('prof-pic')
             
-            welcome.innerText = `${user.first} ${user.last}`
+            welcome.innerText = `User: ${user.first} ${user.last}`
             points.innerText = `Points: ${user.points}`
             backButton.innerHTML=`<a href="http://localhost:3001/">Select new user</a>`
             image.src = user.image
@@ -295,3 +302,58 @@ updateButton.addEventListener("click", () => {
     toggleUpdateButton()
 }
 )
+function catchCheaters(){
+
+    cheater(1)
+    cheater(2)
+    cheater(3)
+    cheater(4)
+    cheater(5)
+    cheater(6)
+    cheater(7)
+    cheater(8)
+    cheater(9)
+}
+
+function cheater(weekInt){
+
+    const cheatButton1 = document.createElement('button')
+    cheatButton1.innerText = `Cheat for week ${weekInt}`
+    filler.append(cheatButton1)
+
+
+    function cheatSheet1(){
+
+        fetch(gameURL)
+            .then(response)
+            .then(games => games.map(game => {
+                if (game.week.week == `${weekInt}`){
+                
+                    const results = document.createElement('p')
+                    results.innerText = `Week ${game.week.week} - ${game.winner.name}`
+                    filler.append(results)
+        
+                }
+            })
+            ) 
+    }
+
+    cheatButton1.addEventListener("click", () => {
+        // toggleCheatSheet()
+        const winnerList = document.createElement('h1')
+        winnerList.innerText = "WINNERS:"
+        filler.append(winnerList)
+        cheatSheet1()
+    })
+
+
+
+}
+function cheatActivator(){
+
+    catchCheaters()
+
+
+}
+
+cheatButton.addEventListener('click', cheatActivator)

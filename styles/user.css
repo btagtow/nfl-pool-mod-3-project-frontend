@@ -46,12 +46,20 @@
 #header-container {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 #points {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+}
+
+#filler {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /*# sourceMappingURL=user.css.map */
