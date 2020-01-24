@@ -8,7 +8,6 @@
 h1{
     display: flex;
     justify-content: center;
-    border: solid red
 }
 #user-selector{
     border:solid blue
@@ -18,7 +17,22 @@ h1{
     height: 50%
 }
 
+#user-container{
+    display: flex;
+    flex-direction: column;
+}
 
+#view-user{
+    background-color:darkblue; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    
+}
 /* #game-container{
 
 

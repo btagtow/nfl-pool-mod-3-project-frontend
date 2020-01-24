@@ -12,15 +12,31 @@
 
     <main>
         <div id="welcome-container">
-            <div id="welcome-message"></div>
-            <div id="points"></div>
-            <div id="image"></div>
+            <div id="welcome-message">
+            </div>
+           
+                    <form id = "update-user-form">              
+                        <label>First Name</label>
+                        <input type='text' name='first-name' id='first-name'/>
+                        <label>Last Name</label>
+                        <input type='text' name='last-name' id='last-name' />
+                        <label>Profile Pic</label>
+                        <input type='url' name='image' id='image' placeholder='Image URL' /></label>
+                        <input type='submit' value='Submit Update' name='update-user-form'>
+                    </form>
+                    <button id="toggle-update-form">Update User</button>
+            <div id="points">
+            </div>
+            <div id = "profile-pic-container">
+                <img id="prof-pic"></img>
+            </div>
             <div id="back"></div>
         </div>
         <div id="week-container">
             <label>Select a Week:</label>
                 <select id="week-drop-down">
                 </select>
+                <button id="week-drop-down-select">Select</button>
         </div>
         <div id="game-container">
             <div id="week1-container"></div>
@@ -29,7 +45,24 @@
             <div id="week4-container"></div>
             <div id="week5-container"></div>
         </div>
-        <div id="selection-container"></div>
+        <div id="selection-container">
+            <h3>Current Picks:</h3>
+            <div id = 'week-1-selections'>
+                <h4>Week 1</h4>
+            </div>
+            <div id = 'week-2-selections'>
+                <h4>Week 2</h4>
+            </div>
+            <div id = 'week-3-selections'>
+                <h4>Week 3</h4>
+            </div>
+            <div id = 'week-4-selections'>
+                <h4>Week 4</h4>
+            </div>
+            <div id = 'week-5-selections'>
+                <h4>Week 5</h4>
+            </div>
+        </div>
     </main>
 
     <script src="user.js"></script>

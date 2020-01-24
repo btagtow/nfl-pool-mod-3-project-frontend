@@ -10,6 +10,7 @@ const firstName = document.getElementById('first-name')
 const lastName = document.getElementById('last-name')
 const favoriteTeamSelector = document.getElementById('favorite-team-selector')
 const viewUserButton = document.getElementById('view-user')
+const updateUser = document.getElementById('update-user')
 const userViewer = document.getElementById('user-viewer')
 const searchParams = new URLSearchParams(window.location.search)
 const id = searchParams.get('id')
@@ -22,7 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     userPage()
 
+
 })
+
 
 function fetchUsers(){
     fetch('http://localhost:3000/users')
@@ -45,7 +48,6 @@ function fetchUsers(){
 function userPage(){
     viewUserButton.addEventListener('click', () => {
         let user = userDropDown.options[userDropDown.selectedIndex].id
-
         window.location.replace(`http://localhost:3001/user.html?id=${user}`)
     })
 
@@ -63,20 +65,6 @@ function fetchWeeks(){
 
     }
 
-// function fetchTeams(){
-//     fetch(teamURL)
-//         .then(response)
-//         .then(teams => teams.map(team => {
-//             const eachTeam = document.createElement('option')
-//             eachTeam.innerText = team.name
-//             eachTeam.id = team.id
-//             favoriteTeamSelector.append(eachTeam)
-
-
-//         }))
-// }
-
-
 function signUpForm(){
     createUser.addEventListener('submit', () => {
         event.preventDefault()
@@ -90,7 +78,6 @@ function signUpForm(){
             'last': lastName,
             'points': "2",
             'status': 'alive',
-
             image
             // team
         }
@@ -103,8 +90,5 @@ function signUpForm(){
 
         })
         window.alert(`Hi ${firstName}, your profile has been created.`)
-
-
     })
 }
-
