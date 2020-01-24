@@ -1,0 +1,12 @@
+@import "colors";
+@import "scales";
+@import "typography";
+$primary-color-1: hsl(10, 40%, 50%);
+
+
+#user-container{
+    display:flex;
+    flex-direction: column;
+    background-color: $primary-color-1;
+
+}

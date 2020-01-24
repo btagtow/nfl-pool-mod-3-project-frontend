@@ -14,6 +14,13 @@ const updateUser = document.getElementById('update-user')
 const userViewer = document.getElementById('user-viewer')
 const searchParams = new URLSearchParams(window.location.search)
 const id = searchParams.get('id')
+const imageURL = `http://localhost:3000/predictions/7`
+const imageId = `7`
+const imageCard = document.getElementById('image_card')
+const superBowlPrediction = document.getElementById('super-bowl-prediction')
+const likeButton = document.getElementById('like_button')
+const likeCount = document.getElementById('likes')
+superBowlPrediction.append(imageCard)
 document.addEventListener("DOMContentLoaded", () => {
 
     fetchUsers()
@@ -23,7 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     userPage()
 
-
+    
+    likeCounter(imageURL, 7)
+    
+    imageData()
 })
 
 
@@ -92,3 +102,46 @@ function signUpForm(){
         window.alert(`Hi ${firstName}, your profile has been created.`)
     })
 }
+
+function imageData(){
+    fetch(`http://localhost:3000/predictions/`)
+        .then(response)
+        .then(images => images.map(image => {
+        const chiefs = document.getElementById('chiefs')
+    
+        chiefs.src = image.image   
+        likeButton.innerText = 'Throw a like for the Chiefs to win.'
+        likeCount.innerText = image.likes
+
+        imageCard.append(chiefs)
+        imageCard.append(likeButton)
+        imageCard.append(likeCount)
+        
+        
+        })
+        )
+        }
+
+function likeCounter(imageURL, imageId){
+
+    likeButton.addEventListener('click', () => {
+    
+        event.preventDefault()
+
+    
+        const toNum = parseInt(likes.innerText)
+        likes.innerText = toNum+1
+    
+        fetch(imageURL, {
+        method: 'PATCH',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            image_id:imageId
+        })
+        }
+        )
+    })
+    }
